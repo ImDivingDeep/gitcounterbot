@@ -4,6 +4,7 @@ using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Configuration;
 using System.Threading.Tasks;
 
 namespace DiscordGifCounter
@@ -35,7 +36,8 @@ namespace DiscordGifCounter
 
             _commandHandler = new CommandHandler(_client, _commands, _services);
 
-            var token = "MTAxNjQwMTU4Njc5NDI4NzEyNQ.Gq8R8o.RYRjjhLLOROzslXahnN3gNbJXTETFh1M32bIdo";
+            // Token is read from the app.config file
+            var token = ConfigurationManager.AppSettings.Get("Token");
 
             await _commandHandler.InstallCommandsAsync();
             await _client.LoginAsync(TokenType.Bot, token);

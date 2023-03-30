@@ -365,3 +365,5 @@ MigrationBackup/
 
 # JetBrains Rider
 *.sln.iml
+
+DiscordGifCounter/app.config
